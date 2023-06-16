@@ -33,10 +33,24 @@ public class Hello extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");
-		out.println("<h1>Hello สวัสดี</h1>");
-		out.println("</html></body>");
-		out.append("วิทยาลัยเทคนิคพังงา");
+//		out.println("<h1>Hello สวัสดี</h1>");
+//		out.println("</body></html>");
+//		out.append("วิทยาลัยเทคนิคพังงา");
 
+		Product p = new Product();
+//		p.setId("001");
+//		p.setName("Coke");
+//		p.setPrice(25.50f);
+		
+		p.setId(request.getParameter ("id"));
+		p.setName(request.getParameter("name"));
+		p.setPrice(Float.parseFloat(request.getParameter("price")));
+		
+		out.print("รหัสสินค้า " + p.getId() + "<br>");
+		out.print("ชื่อสินค้า " +p.getName() + "<br>");
+		out.print("ราคา " +p.getPrice() + " บาท");
+		System.out.println(p.getId());
+		
 		
 	}
 
